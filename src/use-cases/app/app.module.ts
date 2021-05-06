@@ -1,12 +1,13 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 
-import { EletronicHealthRecordModule } from '../electronic-health-record/ehr.module';
+import { CasesModule } from '../cases/cases.module';
 import { UserModule } from '../user/user.module';
 import { DiagnosisService } from '../diagnosis/diagnosis.service';
+import { ConditionsModule } from '../conditions/conditions.module';
 
 @Module({
-  imports: [EletronicHealthRecordModule, UserModule, DiagnosisService],
+  imports: [CasesModule, UserModule, DiagnosisService, ConditionsModule],
   controllers: [AppController],
   providers: [],
 })

@@ -14,5 +14,7 @@ describe('DiagnosisController', () => {
     controller = app.get<DiagnosisController>(DiagnosisController);
   });
 
-  describe('root', () => {});
+  describe('root', () => {
+    it('', () => {});
+  });
 });

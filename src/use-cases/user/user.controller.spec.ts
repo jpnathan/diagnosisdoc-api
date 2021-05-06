@@ -14,5 +14,7 @@ describe('UserController', () => {
     controller = app.get<UserController>(UserController);
   });
 
-  describe('root', () => {});
+  describe('root', () => {
+    it('', () => {});
+  });
 });
