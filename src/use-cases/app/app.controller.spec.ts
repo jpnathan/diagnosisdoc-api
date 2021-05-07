@@ -13,6 +13,8 @@ describe('AppController', () => {
   });
 
   describe('root', () => {
-    it('', () => {});
+    it('should be defined', () => {
+      expect(appController).toBeDefined();
+    });
   });
 });

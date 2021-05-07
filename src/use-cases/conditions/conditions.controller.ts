@@ -1,11 +1,13 @@
-import { Controller, Get } from '@nestjs/common';
+import { Controller, Get, UseGuards } from '@nestjs/common';
+import { AuthGuard } from '@nestjs/passport';
 import { ConditionsService } from './conditions.service';
 
-@Controller()
+@Controller('conditions')
 export class ConditionsController {
   constructor(private conditionsService: ConditionsService) {}
 
-  @Get()
+  @Get('/')
+  @UseGuards(AuthGuard())
   public getConditions() {
     return this.conditionsService.getConditions();
   }

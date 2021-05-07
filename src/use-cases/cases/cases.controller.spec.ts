@@ -15,6 +15,10 @@ describe('CasesController', () => {
   });
 
   describe('root', () => {
+    it('should be defined', () => {
+      expect(controller).toBeDefined();
+    });
+
     it('should return array of conditions', async () => {
       const conditions = await controller.getCases();
       expect(conditions).toHaveLength(3);
