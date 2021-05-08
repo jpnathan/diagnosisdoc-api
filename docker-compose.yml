@@ -1,0 +1,31 @@
+version: '2'
+
+services:
+  mongo-diagnosisdoc:
+    image: mongo
+    container_name: mongo-diagnosisdoc
+    restart: unless-stopped
+    ports:
+      - 27027:27017
+    environment:
+      - MONGO_INITDB_DATABASE=diagnosisdoc
+    volumes:
+      - ../_data/mongo-youlle/db:/data/db
+      - ../_data/mongo-youlle/configdb:/data/configdb
+
+  diagnosisdoc-api:
+    image: node:12
+    working_dir: /app
+    container_name: diagnosisdoc-api
+    restart: unless-stopped
+    command: 'npm run start:prod'
+    ports:
+      - 3000:3000
+      - 9229:9229
+    tty: true
+    volumes:
+      - .:/app
+    depends_on:
+      - mongo-diagnosisdoc
+    environment:
+      - NODE_ENV=production
