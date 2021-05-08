@@ -7,15 +7,17 @@ import { DiagnosisService } from '../diagnosis/diagnosis.service';
 import { ConditionsModule } from '../conditions/conditions.module';
 import { ConfigModule } from '@nestjs/config';
 import { AuthModule } from '../auth/auth.module';
+import { MongoModule } from 'src/shared/mongo/mongo.module';
 
 @Module({
   imports: [
+    ConfigModule.forRoot(),
+    MongoModule,
     AuthModule,
     CasesModule,
     UsersModule,
     DiagnosisService,
     ConditionsModule,
-    ConfigModule.forRoot(),
   ],
   controllers: [AppController],
   providers: [],
