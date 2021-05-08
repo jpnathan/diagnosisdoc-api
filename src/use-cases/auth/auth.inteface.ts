@@ -11,3 +11,7 @@ export interface LoginStatus {
   email: string;
   token: string;
 }
+
+export interface JWTToken {
+  token: string;
+}

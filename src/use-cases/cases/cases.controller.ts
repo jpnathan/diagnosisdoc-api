@@ -1,4 +1,5 @@
-import { Controller, Get } from '@nestjs/common';
+import { Controller, Get, UseGuards } from '@nestjs/common';
+import { AuthGuard } from '@nestjs/passport';
 import { ICase } from './cases.interface';
 import { CasesService } from './cases.service';
 
@@ -7,6 +8,7 @@ export class CasesController {
   constructor(private casesService: CasesService) {}
 
   @Get()
+  @UseGuards(AuthGuard())
   public getCases(): Promise<ICase[]> {
     return this.casesService.getCases();
   }

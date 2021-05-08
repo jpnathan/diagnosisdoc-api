@@ -3,7 +3,7 @@ import { JwtService } from '@nestjs/jwt';
 import { IUserResponse } from '../users/users.interface';
 import { UsersService } from '../users/users.service';
 import { LoginUserDto } from './auth.dto';
-import { JwtPayload, LoginStatus } from './auth.inteface';
+import { JWTToken, JwtPayload, LoginStatus } from './auth.inteface';
 
 @Injectable()
 export class AuthService {
@@ -22,11 +22,11 @@ export class AuthService {
     };
   }
 
-  private createToken({ email }: LoginUserDto): any {
+  private createToken({ email }: LoginUserDto): JWTToken {
     const user = { email };
-    const accessToken = this.jwtService.sign(user);
+    const token = this.jwtService.sign(user);
     return {
-      accessToken,
+      token,
     };
   }
 

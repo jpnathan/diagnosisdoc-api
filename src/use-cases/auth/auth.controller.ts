@@ -9,6 +9,6 @@ export class AuthController {
 
   @Post('login')
   public async login(@Body() loginUserDto: LoginUserDto): Promise<LoginStatus> {
-    return await this.authService.login(loginUserDto);
+    return this.authService.login(loginUserDto);
   }
 }

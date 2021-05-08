@@ -10,12 +10,12 @@ import { AuthModule } from '../auth/auth.module';
 
 @Module({
   imports: [
+    AuthModule,
     CasesModule,
     UsersModule,
     DiagnosisService,
     ConditionsModule,
     ConfigModule.forRoot(),
-    AuthModule,
   ],
   controllers: [AppController],
   providers: [],
