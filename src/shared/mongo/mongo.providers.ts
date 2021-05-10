@@ -1,7 +1,7 @@
 import { connect, Mongoose } from 'mongoose';
 import { Provider } from '@nestjs/common';
 
-export const MongoProviders: Provider[] = [
+export const mongoProviders: Provider[] = [
   {
     provide: 'MONGO_CONNECTION',
     useFactory: (): Promise<Mongoose> =>
