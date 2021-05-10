@@ -34,9 +34,11 @@ export class AuthService {
     const user = await this.usersService.findOne({
       email: payload.email,
     });
+
     if (!user) {
       throw new HttpException('Invalid token', HttpStatus.UNAUTHORIZED);
     }
+
     return user;
   }
 }

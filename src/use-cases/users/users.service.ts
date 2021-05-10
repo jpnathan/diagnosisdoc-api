@@ -1,7 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { JwtPayload } from '../auth/auth.inteface';
-import { UserDto } from './users.dto';
-import { IUser } from './users.interface';
+import { IUserResponse } from './users.interface';
 
 @Injectable()
 export class UsersService {
@@ -13,7 +12,10 @@ export class UsersService {
     },
   ];
 
-  async findOne(payload: JwtPayload): Promise<UserDto | undefined> {
-    return this.users.find((user) => user.email === payload.email);
+  async findOne(payload: JwtPayload): Promise<IUserResponse | undefined> {
+    const { password, ...result } = this.users.find(
+      (user) => user.email === payload.email,
+    );
+    return result;
   }
 }
