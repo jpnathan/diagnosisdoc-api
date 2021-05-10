@@ -19,4 +19,10 @@ export class DiagnosisService {
       return this.diagnosisModel.create(diagnosis);
     } catch (error) {}
   }
+
+  public async getAll(user: any): Promise<DiagnosisDocument[]> {
+    try {
+      return await this.diagnosisModel.find({ user: user.id });
+    } catch (error) {}
+  }
 }
