@@ -1,7 +1,7 @@
 import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { PassportStrategy } from '@nestjs/passport';
 import { ExtractJwt, Strategy } from 'passport-jwt';
-import { IUserResponse } from 'src/use-cases/users/users.interface';
+import { IUserResponse } from 'src/domain/users/users.interface';
 import { JwtPayload } from '../auth.inteface';
 import { AuthService } from '../auth.service';
 

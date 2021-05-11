@@ -5,5 +5,5 @@ export class DiagnosisDto {
   case: string;
 
   @IsNotEmpty()
-  condition: string;
+  condition: string[];
 }

@@ -22,7 +22,7 @@ export class AuthService {
     };
   }
 
-  private createToken({ email }: LoginUserDto): JWTToken {
+  private createToken({ email }: JwtPayload): JWTToken {
     const user = { email };
     const token = this.jwtService.sign(user);
     return {

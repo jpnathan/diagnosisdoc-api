@@ -23,6 +23,8 @@ export class DiagnosisService {
   public async getAll(user: any): Promise<DiagnosisDocument[]> {
     try {
       return await this.diagnosisModel.find({ user: user.id });
-    } catch (error) {}
+    } catch (error) {
+      throw new Error('Can not create diagnosis properly.');
+    }
   }
 }

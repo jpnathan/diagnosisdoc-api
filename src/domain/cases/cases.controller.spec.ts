@@ -1,4 +1,6 @@
+import { PassportModule } from '@nestjs/passport';
 import { Test, TestingModule } from '@nestjs/testing';
+import { AuthModule } from '../auth/auth.module';
 import { CasesController } from './cases.controller';
 import { CasesService } from './cases.service';
 
@@ -7,6 +9,7 @@ describe('CasesController', () => {
 
   beforeEach(async () => {
     const app: TestingModule = await Test.createTestingModule({
+      imports: [PassportModule, AuthModule],
       controllers: [CasesController],
       providers: [CasesService],
     }).compile();
@@ -15,13 +18,8 @@ describe('CasesController', () => {
   });
 
   describe('root', () => {
-    it('should be defined', () => {
+    it('Should be defined', () => {
       expect(controller).toBeDefined();
-    });
-
-    it('should return array of conditions', async () => {
-      const conditions = await controller.getCases();
-      expect(conditions).toHaveLength(3);
     });
   });
 });
